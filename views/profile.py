@@ -14,7 +14,7 @@ def render(df):
             if not customer.empty:
                 c = customer.iloc[0]
                 
-                # Customer Header
+
                 st.markdown(f"""
                 <div class='premium-card' style='border-color: #7b2cbf; display:flex; justify-content:space-between; align-items:center;'>
                     <div style='display:flex; gap: 20px; align-items:center;'>

@@ -7,7 +7,7 @@ def init_database():
     conn = sqlite3.connect('database.db')
     cursor = conn.cursor()
     
-    # Create Customers Table
+
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS Customers (
         CustomerID INTEGER PRIMARY KEY,
@@ -39,18 +39,18 @@ def init_database():
     )
     ''')
     
-    # Load data from CSV
+
     print("Loading data from ecommerce_clean.csv...")
     df = pd.read_csv('ecommerce_clean.csv')
     
-    # Generate some dummy names (User 50001, User 50002, etc.) to simulate a real database
+
     df['CustomerName'] = df['CustomerID'].apply(lambda x: f"User {x}")
     df['Feedback'] = None
     df['Sentiment'] = None
     df['Prediction'] = None
     df['Confidence'] = None
     
-    # Select columns to match the SQLite table
+
     cols = [
         'CustomerID', 'CustomerName', 'PreferedOrderCat', 'Tenure', 'SatisfactionScore', 
         'OrderCount', 'CashbackAmount', 'Complain', 'DaySinceLastOrder', 'Feedback', 
@@ -60,14 +60,14 @@ def init_database():
         'OrderAmountHikeFromlastYear', 'CouponUsed'
     ]
     
-    # Ensure all columns exist in df
+
     for col in cols:
         if col not in df.columns:
             print(f"Missing {col}")
             
     df_to_sql = df[cols]
     
-    # Insert data into SQLite
+
     print("Inserting data into database.db...")
     df_to_sql.to_sql('Customers', conn, if_exists='replace', index=False)
     

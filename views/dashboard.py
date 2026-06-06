@@ -22,7 +22,7 @@ def render(df):
     st.markdown("### Average Satisfaction Score by Tenure")
     trend_df = df.groupby('Tenure')['SatisfactionScore'].mean().reset_index()
     fig = px.line(trend_df, x='Tenure', y='SatisfactionScore', template="plotly_white")
-    # Vibrant neon blue line
+
     fig.update_traces(line_color='#00f2fe', line_width=3, fill='tozeroy', fillcolor='rgba(0, 242, 254, 0.1)')
     fig.update_layout(plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)', xaxis_title="Tenure (Months)", yaxis_title="Average Satisfaction (1-5)")
     st.plotly_chart(fig)

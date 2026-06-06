@@ -45,7 +45,7 @@ def render(analyzer):
         if feedback_text:
             st.markdown("<br>", unsafe_allow_html=True)
             
-            # Individual styling ratios because the images have different aspect ratios
+
             if category == "Excellent":
                 ratio = [1, 6, 1]
             elif category == "Good":
