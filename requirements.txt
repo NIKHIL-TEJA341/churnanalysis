@@ -4,3 +4,5 @@ joblib
 vaderSentiment
 plotly
 numpy
+xgboost
+scikit-learn

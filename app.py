@@ -35,6 +35,10 @@ st.markdown("<hr style='border:1px solid rgba(0,0,0,0.1);'>", unsafe_allow_html=
 model, feature_names, analyzer = load_models_and_data()
 df = load_data_from_db()
 
+if model is None or feature_names is None or analyzer is None:
+    st.error("Failed to load ML models or configuration files. Check application logs for errors.")
+    st.stop()
+
 if df is None:
     st.error("Database not found! Please run `python init_db.py`.")
     st.stop()
