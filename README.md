@@ -20,7 +20,7 @@ A Machine Learning based web application that predicts customer churn and provid
 
 ## Live Demo
 
-🔗 [Open Application](https://nikhil-retentionai.netlify.app)
+🔗 [Open Application](https://nikhil-churnanalysis.streamlit.app)
 
 ## Author
 
